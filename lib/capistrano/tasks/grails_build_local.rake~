@@ -1,0 +1,14 @@
+# -*- mode: ruby -*- 
+namespace :deploy do
+    desc 'run grails build'
+    task :grails_build_local do
+    #run_locally doesn't play nice with the 'on' directive (it's 'on' localhost)
+      run_locally do
+	execute "[ -d tmp ] || mkdir tmp"
+	execute "rm tmp/*"
+	execute "cp #{fetch(:check_scans_name)} tmp/"
+        execute "grails war tmp/#{fetch(:application)}.war"
+	execute "svn commit -m 'updated build version'"
+      end
+    end  
+end 

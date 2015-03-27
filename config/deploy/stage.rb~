@@ -1,0 +1,17 @@
+set :stage, :production
+
+#role :app, %w{vagrant@localhost}
+
+server '127.0.0.1', user: 'vagrant', roles: %w{app db}
+
+set :ssh_options, {
+ keys: %w(/home/fmortari/.ssh/id_rsa),
+ port: 33022
+}
+
+set :repo_url, 'tmp'
+set :deploy_to, '/home/vagrant'
+set :pg_dump_url, '/tmp'
+set :webapps_folder, '/opt/jetty/webapps'
+set :check_scans_loc, '/home/jetty'
+set :check_scans_name, 'check_scan_files.sh'
