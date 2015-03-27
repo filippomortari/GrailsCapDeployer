@@ -24,3 +24,7 @@ cap stage deploy
 ### Side notes
 You can add additional steps to the pipeline (e.g. a database dump, cleanup tasks, etc..) run either locally or on the target machine.
 
+kudos to [chqr](https://github.com/chqr) for the original idea of bypassing the scm on the target server
+
+(YMMV)
+
